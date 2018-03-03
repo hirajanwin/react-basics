@@ -3,17 +3,19 @@
   "version": "0.0.1",
   "description": "Everyday React components",
   "main": "src/index.js",
+  "repository": "https://github.com/mikecao/react-basics",
+  "author": "Mike Cao <mike@mikecao.com>",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "components"
+  ],
   "scripts": {
     "start": "webpack-dev-server --hot --inline --history-api-fallback",
     "build": "webpack -p --config webpack.config.js",
     "lint": "eslint --ext .js,.jsx src || exit 0",
     "test": "jest || exit 0"
   },
-  "keywords": [
-    "react"
-  ],
-  "author": "Mike Cao <mike@mikecao.com>",
-  "license": "MIT",
   "dependencies": {
     "classnames": "^2.2.5",
     "lodash": "^4.17.4",
