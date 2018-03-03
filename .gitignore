@@ -1,0 +1,12 @@
+# System files
+.DS_Store
+Thumbs.db
+*.swp
+*.log
+
+# IDE files
+.idea/
+
+# App files
+node_modules
+*.map
