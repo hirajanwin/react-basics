@@ -3,9 +3,9 @@ const webpack = require('webpack');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 const PRODUCTION = process.env.NODE_ENV === 'production';
-const vendorIds = Object.keys(require('./package.json').dependencies);
 
 const config = {
+    mode: PRODUCTION ? 'production' : 'development',
     target: 'web',
     entry: {
         demo: [
@@ -14,7 +14,6 @@ const config = {
             'webpack/hot/only-dev-server',
             path.resolve(__dirname, 'src/demo/index.js'),
         ],
-        vendor: vendorIds,
     },
     output: {
         path: path.resolve(__dirname, 'build'),
@@ -25,7 +24,7 @@ const config = {
         extensions: ['.js', '.json', '.jsx'],
         modules: [path.resolve(__dirname, 'src'), 'node_modules'],
     },
-    devtool: PRODUCTION ? false : 'inline-source-map',
+    devtool: PRODUCTION ? false : 'eval',
     devServer: {
         host: 'localhost',
         port: 9000,
@@ -51,9 +50,6 @@ const config = {
                 use: [
                     {
                         loader: 'style-loader',
-                        options: {
-                            sourceMap: true,
-                        },
                     },
                     {
                         loader: 'css-loader',
@@ -68,7 +64,7 @@ const config = {
                     {
                         loader: 'less-loader',
                         options: {
-                            sourceMap: true,
+                            sourceMap: false,
                         },
                     },
                 ],
@@ -76,15 +72,8 @@ const config = {
         ],
     },
     plugins: [
-        new webpack.NamedModulesPlugin(),
-        new webpack.NoEmitOnErrorsPlugin(),
         new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(en)$/),
         new LodashModuleReplacementPlugin(),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            filename: 'vendor.js',
-            minChunks: Infinity,
-        }),
     ],
 };
 
