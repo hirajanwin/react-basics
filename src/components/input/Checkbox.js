@@ -1,14 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './Checkbox.less';
 
 export default class Checkbox extends React.Component {
+    static propTypes = {
+        disabled: PropTypes.bool,
+        onChange: PropTypes.func,
+    }
+
+    static defaultProps = {
+        disabled: false,
+        onChange: () => {}
+    }
+
     onChange = (e) => {
         const { target: { name, checked } } = e;
         const { onChange } = this.props;
 
-        if (onChange) {
-            onChange(name, checked);
-        }
+        onChange(name, checked, e);
     }
 
     render() {
@@ -30,7 +39,3 @@ export default class Checkbox extends React.Component {
         );
     }
 }
-
-Checkbox.defaultProps = {
-    disabled: false,
-};
