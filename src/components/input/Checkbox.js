@@ -4,11 +4,15 @@ import styles from './Checkbox.less';
 
 export default class Checkbox extends React.Component {
     static propTypes = {
+        name: PropTypes.string,
+        value: PropTypes.bool,
         disabled: PropTypes.bool,
         onChange: PropTypes.func,
     }
 
     static defaultProps = {
+        name: "",
+        value: false,
         disabled: false,
         onChange: () => {}
     }

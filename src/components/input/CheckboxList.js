@@ -1,27 +1,39 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './CheckboxList.less';
 import Checkbox from './Checkbox';
 
 export default class CheckboxList extends React.Component {
+    static propTypes = {
+        name: PropTypes.string,
+        values: PropTypes.array,
+        onChange: PropTypes.func,
+    }
+
+    static defaultProps = {
+        name: "",
+        values: false,
+        onChange: () => {},
+    }
+
     onChange = (checkboxName, value) => {
         const { name, values, onChange } = this.props;
+        const newValues = values.slice();
 
         if (value) {
-            values.push(checkboxName);
+            newValues.push(checkboxName);
         }
         else {
-            values.splice(values.indexOf(checkboxName), 1);
+            newValues.splice(newValues.indexOf(checkboxName), 1);
         }
 
-        if (onChange) {
-            onChange(name, values);
-        }
+        onChange(name, newValues);
     }
 
     render() {
         const { items, values } = this.props;
 
-        const CheckBoxes = items.map((item, i) => (
+        const checkBoxes = items.map((item, i) => (
             <div key={i}>
                 {item}
                 <Checkbox
@@ -34,7 +46,7 @@ export default class CheckboxList extends React.Component {
 
         return (
             <div className={styles.checkboxList}>
-                {CheckBoxes}
+                {checkBoxes}
             </div>
         );
     }
