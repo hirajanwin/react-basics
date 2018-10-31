@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import styles from './Button.less';
 
 export default class Button extends PureComponent {
     static propTypes = {
-        value: string,
-        disabled: boolean,
+        value: PropTypes.string,
+        disabled: PropTypes.bool,
     }
 
     static defaultProps = {

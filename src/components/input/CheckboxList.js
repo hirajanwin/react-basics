@@ -23,7 +23,7 @@ export default class CheckboxList extends React.Component {
         if (value) {
             newValues.push(checkboxName);
         }
-        else {
+        if (newValues.indexOf(checkboxName) !== -1) {
             newValues.splice(newValues.indexOf(checkboxName), 1);
         }
 
