@@ -1,27 +1,48 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './Text.less';
 
 export default class Text extends React.Component {
+    static propTypes = {
+        name: PropTypes.string,
+        value: PropTypes.string,
+        min: PropTypes.number,
+        max: PropTypes.number,
+        readOnly: PropTypes.bool,
+        disabled: PropTypes.bool,
+        onClick: PropTypes.func,
+        onKeyUp: PropTypes.func,
+        onChange: PropTypes.func,
+    }
+
+    static defaultProps = {
+        name: '',
+        value: '',
+        readOnly: false,
+        disabled: false,
+        onClick: () => {},
+        onKeyUp: () => {},
+        onChange: () => {},
+    }
+
     onChange = (e) => {
-        const { target: {name, value} } = e;
+        const { target: { name, value } } = e;
         const { onChange } = this.props;
 
-        if (onChange) {
-            onChange(name, value);
-        }
+        onChange(name, value);
     }
 
     render() {
-        const { 
+        const {
             name,
             value,
             min,
             max,
+            readOnly,
+            disabled,
             onClick,
             onKeyUp,
-            readOnly = false,
-            disabled = false,
-    } = this.props;
+        } = this.props;
 
         return (
             <input
@@ -37,12 +58,6 @@ export default class Text extends React.Component {
                 readOnly={readOnly}
                 disabled={disabled}
             />
-        )
+        );
     }
 }
-
-Text.defaultProps = {
-    value: '',
-    readOnly: false,
-    disabled: false,
-};
