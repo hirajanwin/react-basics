@@ -23,7 +23,7 @@ export default class Button extends PureComponent {
             <input
                 className={styles.button}
                 type="button"
-                value={value} 
+                value={value}
                 disabled={disabled}
             />
         );

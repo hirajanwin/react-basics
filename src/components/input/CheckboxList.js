@@ -6,12 +6,12 @@ import Checkbox from './Checkbox';
 export default class CheckboxList extends React.Component {
     static propTypes = {
         name: PropTypes.string,
-        values: PropTypes.array,
+        values: PropTypes.arrayOf(PropTypes.string),
         onChange: PropTypes.func,
     }
 
     static defaultProps = {
-        name: "",
+        name: '',
         values: false,
         onChange: () => {},
     }

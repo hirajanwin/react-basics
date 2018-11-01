@@ -11,10 +11,10 @@ export default class Checkbox extends React.Component {
     }
 
     static defaultProps = {
-        name: "",
+        name: '',
         value: false,
         disabled: false,
-        onChange: () => {}
+        onChange: () => {},
     }
 
     onChange = (e) => {
