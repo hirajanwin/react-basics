@@ -6,6 +6,7 @@ const PRODUCTION = process.env.NODE_ENV === 'production';
 
 const config = {
     mode: PRODUCTION ? 'production' : 'development',
+    devtool: PRODUCTION ? false : 'source-map',
     target: 'web',
     entry: {
         demo: [
@@ -24,7 +25,6 @@ const config = {
         extensions: ['.js', '.json', '.jsx'],
         modules: [path.resolve(__dirname, 'src'), 'node_modules'],
     },
-    devtool: PRODUCTION ? false : 'eval',
     devServer: {
         host: 'localhost',
         port: 9000,
