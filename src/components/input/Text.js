@@ -10,8 +10,6 @@ export default class Text extends React.Component {
         max: PropTypes.number,
         readOnly: PropTypes.bool,
         disabled: PropTypes.bool,
-        onClick: PropTypes.func,
-        onKeyUp: PropTypes.func,
         onChange: PropTypes.func,
     }
 
@@ -20,8 +18,6 @@ export default class Text extends React.Component {
         value: '',
         readOnly: false,
         disabled: false,
-        onClick: () => {},
-        onKeyUp: () => {},
         onChange: () => {},
     }
 
