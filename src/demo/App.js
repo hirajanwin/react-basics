@@ -1,12 +1,14 @@
-import React from 'react';
-import InputView from './InputView'
-import Button from 'components/input/Button';
-import Text from 'components/input/Text';
+import React, { Component } from 'react';
+import InputView from './InputView';
 
-const App = () => (
-    <div>
-        <InputView />
-    </div>
-);
+class App extends Component {
+    render() {
+        return (
+            <div>
+                <InputView />
+            </div>
+        );
+    }
+}
 
 export default App;

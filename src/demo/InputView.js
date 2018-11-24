@@ -1,9 +1,9 @@
 import React from 'react';
-import Button from 'components/input/Button';
-import Text from 'components/input/Text';
-import Checkbox from 'components/input/Checkbox';
-import CheckboxList from 'components/input/CheckboxList';
-import SelectList from 'components/input/SelectList';
+import Button from '../components/input/Button';
+import Text from '../components/input/Text';
+import Checkbox from '../components/input/Checkbox';
+import CheckboxList from '../components/input/CheckboxList';
+import SelectList from '../components/input/SelectList';
 
 export default class InputView extends React.Component {
     constructor(props) {
