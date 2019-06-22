@@ -1,51 +1,49 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Checkbox.less';
 
-export default class Checkbox extends React.Component {
+export default class Radio extends Component {
     static propTypes = {
         name: PropTypes.string,
-        label: PropTypes.string,
-        value: PropTypes.bool,
+        checked: PropTypes.bool,
+        value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
         disabled: PropTypes.bool,
         onChange: PropTypes.func,
-    }
+    };
 
     static defaultProps = {
         name: '',
-        label: '',
-        value: false,
+        checked: false,
+        value: null,
         disabled: false,
-        onChange: () => { },
-    }
+        onChange: () => {},
+    };
 
     onChange = (e) => {
-        const { target: { name, checked } } = e;
+        const {
+            target: { name, value },
+        } = e;
         const { onChange } = this.props;
 
-        onChange(name, checked, e);
-    }
+        onChange(name, value, e);
+    };
 
     render() {
-        const {
-            name,
-            value,
-            label,
-            disabled,
-        } = this.props;
+        const { checked, name, value, disabled, label } = this.props;
 
         return (
-            <div className={styles.checkbox}>
+            <div className={styles.radio}>
                 <label htmlFor={name}>
                     <input
-                        type="checkbox"
+                        className={styles.radio}
+                        type="radio"
                         name={name}
                         value={value}
-                        checked={value}
+                        checked={checked}
                         onChange={this.onChange}
                         disabled={disabled}
                     />
-                    {label || name}
+                    { label || name }
                 </label>
             </div>
         );

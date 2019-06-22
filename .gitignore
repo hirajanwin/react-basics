@@ -10,3 +10,12 @@ Thumbs.db
 # App files
 node_modules
 *.map
+\.vs/ProjectSettings\.json
+
+\.vs/react-basics/v15/\.suo
+
+\.vs/slnx\.sqlite
+
+\.vs/VSWorkspaceState\.json
+
+build/

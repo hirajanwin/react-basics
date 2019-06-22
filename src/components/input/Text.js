@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Text.less';
 
-export default class Text extends React.Component {
+export default class Text extends Component {
     static propTypes = {
         name: PropTypes.string,
         value: PropTypes.string,
@@ -25,7 +25,7 @@ export default class Text extends React.Component {
         const { target: { name, value } } = e;
         const { onChange } = this.props;
 
-        onChange(name, value);
+        onChange(name, value, e);
     }
 
     render() {
