@@ -6,7 +6,7 @@ export default class Button extends PureComponent {
     static propTypes = {
         value: PropTypes.string,
         disabled: PropTypes.bool,
-    }
+    };
 
     static defaultProps = {
         value: 'Button',
@@ -14,10 +14,7 @@ export default class Button extends PureComponent {
     };
 
     render() {
-        const {
-            value,
-            disabled,
-        } = this.props;
+        const { value, disabled } = this.props;
 
         return (
             <input

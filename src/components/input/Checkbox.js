@@ -41,7 +41,7 @@ export default class Checkbox extends React.Component {
                         type="checkbox"
                         name={name}
                         value={value}
-                        checked={value}
+                        
                         onChange={this.onChange}
                         disabled={disabled}
                     />
