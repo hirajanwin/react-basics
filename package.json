@@ -14,7 +14,9 @@
     "start": "webpack-dev-server --hot --inline --history-api-fallback",
     "build": "webpack -p --config webpack.config.js",
     "lint": "eslint --ext .js,.jsx src || exit 0",
-    "test": "jest --watch"
+    "test": "jest || exit 0",
+    "test:watch": "jest --watch"
+    
   },
   "jest": {
     "moduleNameMapper": {
