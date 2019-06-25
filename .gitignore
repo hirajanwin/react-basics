@@ -6,7 +6,10 @@ Thumbs.db
 
 # IDE files
 .idea/
+.vs/
+.vscode/
 
 # App files
 node_modules
 *.map
+build/

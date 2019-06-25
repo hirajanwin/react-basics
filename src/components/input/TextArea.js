@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styles from './Text.less';
+import styles from './TextArea.less';
 
-export default class Text extends Component {
+export default class TextArea extends Component {
     static propTypes = {
         name: PropTypes.string,
         value: PropTypes.string,
-        min: PropTypes.number,
-        max: PropTypes.number,
+        placeHolder: this.propTypes.string,
+        maxLength: PropTypes.number,
+        rows: PropTypes.number,
+        cols: PropTypes.number,
         readOnly: PropTypes.bool,
         disabled: PropTypes.bool,
         onChange: PropTypes.func,
-    }
+    };
 
     static defaultProps = {
         name: '',
@@ -19,38 +21,40 @@ export default class Text extends Component {
         readOnly: false,
         disabled: false,
         onChange: () => {},
-    }
+    };
 
     onChange = (e) => {
-        const { target: { name, value } } = e;
+        const {
+            target: { name, value },
+        } = e;
         const { onChange } = this.props;
 
         onChange(name, value, e);
-    }
+    };
 
     render() {
         const {
             name,
             value,
-            min,
-            max,
+            placeHolder,
+            maxLength,
+            rows,
+            cols,
             readOnly,
             disabled,
-            onClick,
-            onKeyUp,
         } = this.props;
 
         return (
-            <input
-                className={styles.text}
+            <textarea
+                className={styles.textArea}
                 type="text"
                 name={name}
                 value={value}
                 onChange={this.onChange}
-                min={min}
-                max={max}
-                onClick={onClick}
-                onKeyUp={onKeyUp}
+                placeholder={placeHolder}
+                maxLength={maxLength}
+                rows={rows}
+                cols={cols}
                 readOnly={readOnly}
                 disabled={disabled}
             />
