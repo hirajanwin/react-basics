@@ -5,6 +5,7 @@ import Checkbox from '../components/input/Checkbox';
 import CheckboxList from '../components/input/CheckboxList';
 import SelectList from '../components/input/SelectList';
 import RadioList from '../components/input/RadioList';
+import Modal from '../components/modal/Modal';
 
 export default class InputView extends React.Component {
     constructor(props) {
@@ -34,6 +35,7 @@ export default class InputView extends React.Component {
                 { name: 'Radio Two', value: 2 },
                 { name: 'Radio Three', value: 3, label: 'Radio Three Label' },
             ],
+            modalOpen: false,
         };
     }
 
@@ -43,6 +45,12 @@ export default class InputView extends React.Component {
         data[name] = value;
 
         this.setState({ data });
+    };
+
+    toggle = () => {
+        const { modalOpen } = this.state;
+
+        this.setState({ modalOpen: !modalOpen });
     };
 
     render() {
@@ -57,6 +65,7 @@ export default class InputView extends React.Component {
             checkboxItems,
             selectItems,
             radioItems,
+            modalOpen,
         } = this.state;
 
         return (
@@ -106,6 +115,10 @@ export default class InputView extends React.Component {
                         onChange={this.onChange}
                     />
                 </div>
+                <button onClick={this.toggle}>Login</button>
+                <Modal on={modalOpen} toggle={this.toggle}>
+                    <h1>still</h1>
+                </Modal>
             </div>
         );
     }

@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Button.less';
+import classnames from 'classnames';
 
 export default class Button extends PureComponent {
     static propTypes = {
@@ -16,11 +17,11 @@ export default class Button extends PureComponent {
     };
 
     render() {
-        const { value, disabled, onClick } = this.props;
+        const { value, disabled, onClick, className } = this.props;
 
         return (
             <input
-                className={styles.button}
+                className={classnames(className, styles.button)}
                 type="button"
                 value={value}
                 onClick={onClick}
