@@ -1,10 +1,6 @@
 import React from 'react';
-import Button from '../components/input/Button';
-import Text from '../components/input/Text';
-import Checkbox from '../components/input/Checkbox';
-import CheckboxList from '../components/input/CheckboxList';
-import SelectList from '../components/input/SelectList';
-import RadioList from '../components/input/RadioList';
+import { Button, Checkbox, CheckboxList, Modal, RadioList, SelectList, Text, Toggle } from '../components';
+
 
 export default class InputView extends React.Component {
     constructor(props) {
@@ -34,6 +30,7 @@ export default class InputView extends React.Component {
                 { name: 'Radio Two', value: 2 },
                 { name: 'Radio Three', value: 3, label: 'Radio Three Label' },
             ],
+            modalOpen: false,
         };
     }
 
@@ -43,6 +40,12 @@ export default class InputView extends React.Component {
         data[name] = value;
 
         this.setState({ data });
+    };
+
+    toggle = () => {
+        const { modalOpen } = this.state;
+
+        this.setState({ modalOpen: !modalOpen });
     };
 
     render() {
@@ -57,6 +60,7 @@ export default class InputView extends React.Component {
             checkboxItems,
             selectItems,
             radioItems,
+            modalOpen,
         } = this.state;
 
         return (
@@ -106,6 +110,16 @@ export default class InputView extends React.Component {
                         onChange={this.onChange}
                     />
                 </div>
+                <Toggle>
+                    {({ show, toggle }) => (
+                        <React.Fragment>
+                            <button onClick={toggle}>Login</button>
+                            <Modal show={show} toggle={toggle}>
+                                <h1>still</h1>
+                            </Modal>
+                        </React.Fragment>
+                    )}
+                </Toggle>
             </div>
         );
     }

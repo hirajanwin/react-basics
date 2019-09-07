@@ -6,7 +6,7 @@ export default class TextArea extends Component {
     static propTypes = {
         name: PropTypes.string,
         value: PropTypes.string,
-        placeHolder: this.propTypes.string,
+        placeHolder: PropTypes.string,
         maxLength: PropTypes.number,
         rows: PropTypes.number,
         cols: PropTypes.number,
