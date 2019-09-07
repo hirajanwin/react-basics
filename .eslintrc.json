@@ -31,6 +31,7 @@
                 "SwitchCase": 1
             }
         ],
+        "function-paren-newline": ["error", "consistent"],
         "linebreak-style": ["error", "unix"],
         "max-len": [
             "error",

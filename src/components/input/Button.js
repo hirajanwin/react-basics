@@ -17,16 +17,17 @@ export default class Button extends PureComponent {
     };
 
     render() {
-        const { value, disabled, onClick, className } = this.props;
+        const { children, value, disabled, onClick, className } = this.props;
 
         return (
-            <input
+            <button
                 className={classnames(className, styles.button)}
-                type="button"
                 value={value}
                 onClick={onClick}
                 disabled={disabled}
-            />
+            >
+                {children}
+            </button>
         );
     }
 }

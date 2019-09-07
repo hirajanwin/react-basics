@@ -8,7 +8,7 @@ export default class RadioList extends Component {
     static propTypes = {
         name: PropTypes.string,
         value: PropTypes.string,
-        items: PropTypes.arrayOf(PropTypes.string),
+        items: PropTypes.arrayOf(PropTypes.any),
         onChange: PropTypes.func,
     }
 

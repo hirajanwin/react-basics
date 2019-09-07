@@ -3,27 +3,26 @@ import PropTypes from 'prop-types';
 import styles from './Modal.less';
 import Portal from '../helper/helper';
 import Button from '../input/Button';
+import Icon from '../Icon';
 
 export default class Modal extends Component {
     constructor() {
         super();
     }
 
-    test() {}
-
     render() {
-        const { children, toggle, on } = this.props;
+        const { children, toggle, show } = this.props;
 
         return (
             <Portal>
-                {on && (
+                {show && (
                     <div className={styles.modalWrapper}>
                         <div className={styles.modalWindow}>
                             <Button
                                 className={styles.modalCloseButton}
                                 onClick={toggle}
                             >
-                                Close
+                                <Icon name="close" />
                             </Button>
                             {children}
                         </div>

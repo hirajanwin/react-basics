@@ -1,11 +1,6 @@
 import React from 'react';
-import Button from '../components/input/Button';
-import Text from '../components/input/Text';
-import Checkbox from '../components/input/Checkbox';
-import CheckboxList from '../components/input/CheckboxList';
-import SelectList from '../components/input/SelectList';
-import RadioList from '../components/input/RadioList';
-import Modal from '../components/modal/Modal';
+import { Button, Checkbox, CheckboxList, Modal, RadioList, SelectList, Text, Toggle } from '../components';
+
 
 export default class InputView extends React.Component {
     constructor(props) {
@@ -115,10 +110,16 @@ export default class InputView extends React.Component {
                         onChange={this.onChange}
                     />
                 </div>
-                <button onClick={this.toggle}>Login</button>
-                <Modal on={modalOpen} toggle={this.toggle}>
-                    <h1>still</h1>
-                </Modal>
+                <Toggle>
+                    {({ show, toggle }) => (
+                        <React.Fragment>
+                            <button onClick={toggle}>Login</button>
+                            <Modal show={show} toggle={toggle}>
+                                <h1>still</h1>
+                            </Modal>
+                        </React.Fragment>
+                    )}
+                </Toggle>
             </div>
         );
     }
